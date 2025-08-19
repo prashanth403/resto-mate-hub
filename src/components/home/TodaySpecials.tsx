@@ -4,11 +4,26 @@ import { useCart } from "@/contexts/CartContext";
 import { formatIndianCurrency } from "@/lib/currency";
 import { useNavigate } from "react-router-dom";
 
+interface SpecialItem {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  originalPrice: number;
+  image: string;
+  rating: number;
+  cookTime: string;
+  isSpicy: boolean;
+  discount: string;
+  category: string;
+  isVeg: boolean;
+}
+
 export function TodaySpecials() {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
-  const specials = [
+  const specials: SpecialItem[] = [
     {
       id: 1,
       name: "Truffle Mushroom Risotto",
@@ -67,7 +82,7 @@ export function TodaySpecials() {
     },
   ];
 
-  const handleAddToCart = (item: any) => {
+  const handleAddToCart = (item: SpecialItem) => {
     addToCart(item);
   };
 

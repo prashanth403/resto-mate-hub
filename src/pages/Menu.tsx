@@ -11,7 +11,6 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { formatIndianCurrency } from "@/lib/currency";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
-import { CartSidebar } from "@/components/cart/CartSidebar";
 import { ItemDetailDialog } from "@/components/menu/ItemDetailDialog";
 
 export default function Menu() {
@@ -374,7 +373,6 @@ export default function Menu() {
         onClose={() => setIsDialogOpen(false)}
       />
 
-      <CartSidebar />
       <Footer />
     </div>
   );

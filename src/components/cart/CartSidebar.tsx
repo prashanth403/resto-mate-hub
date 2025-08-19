@@ -5,10 +5,21 @@ import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/contexts/CartContext";
 import { formatIndianCurrency } from "@/lib/currency";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export function CartSidebar() {
   const { state, dispatch, removeFromCart, updateQuantity, clearCart, getCartTotal, getCartCount } = useCart();
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (state.isOpen) {
+      const original = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = original;
+      };
+    }
+  }, [state.isOpen]);
 
   const handleCheckout = () => {
     navigate('/checkout', { 
@@ -29,12 +40,17 @@ export function CartSidebar() {
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-black/50 z-40"
+        className="fixed inset-0 bg-black/50 z-[60]"
         onClick={() => dispatch({ type: 'CLOSE_CART' })}
       />
       
       {/* Cart Sidebar */}
-      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-background shadow-2xl z-50 transform transition-transform duration-300 ease-in-out">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Shopping cart"
+        className="fixed right-0 top-0 h-full w-full max-w-md bg-background shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out"
+      >
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b">

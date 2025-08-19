@@ -10,7 +10,11 @@ import { formatIndianCurrency } from "@/lib/currency";
 
 interface DemoPaymentProps {
   amount: number;
-  onSuccess: (paymentDetails: any) => void;
+  onSuccess: (paymentDetails: {
+    razorpay_payment_id: string;
+    razorpay_order_id: string;
+    razorpay_signature: string;
+  }) => void;
   onCancel: () => void;
 }
 

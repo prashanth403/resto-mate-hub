@@ -19,7 +19,11 @@ interface PaymentFormProps {
     email: string;
     requests: string;
   };
-  onPaymentSuccess: (paymentDetails: any) => void;
+  onPaymentSuccess: (paymentDetails: {
+    razorpay_payment_id: string;
+    razorpay_order_id: string;
+    razorpay_signature: string;
+  }) => void;
   onPaymentCancel: () => void;
   /** Optional: override total payable amount in INR (e.g., for cart checkout or pre-orders) */
   totalOverrideInInr?: number;
