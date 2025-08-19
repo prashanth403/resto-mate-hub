@@ -6,7 +6,6 @@ import { TodaySpecials } from "@/components/home/TodaySpecials";
 import { RestaurantInfo } from "@/components/home/RestaurantInfo";
 import { Gallery } from "@/components/home/Gallery";
 import { Reviews } from "@/components/home/Reviews";
-import { CartSidebar } from "@/components/cart/CartSidebar";
 
 const Index = () => {
   return (
@@ -21,7 +20,6 @@ const Index = () => {
         <Reviews />
       </main>
       <Footer />
-      <CartSidebar />
     </div>
   );
 };
