@@ -1,0 +1,1 @@
+Add your images under /public/images and a hero image at /public/hero.jpg

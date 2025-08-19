@@ -1,0 +1,26 @@
+:root {
+  --brand-primary: #8b0000;
+}
+
+.brand-bg {
+  background: var(--brand-primary);
+}
+
+.hero {
+  background: url('/hero.jpg') center/cover no-repeat;
+  color: #fff;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.menu-card-img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.footer {
+  background: #111;
+  color: #bbb;
+}
+
